@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.3)"/></filter></defs><g filter="url(%23shadow)"><path d="M30 40 Q35 35 40 40 Q45 35 50 40 Q55 35 60 40 Q65 35 70 40 L70 60 Q65 65 60 60 Q55 65 50 60 Q45 65 40 60 Q35 65 30 60 Z" fill="%23000" opacity="0.08"/><circle cx="35" cy="45" r="2" fill="%23000" opacity="0.08"/><circle cx="65" cy="45" r="2" fill="%23000" opacity="0.08"/><path d="M32 50 Q35 52 38 50" stroke="%23000" stroke-width="1" fill="none" opacity="0.08"/><path d="M62 50 Q65 52 68 50" stroke="%23000" stroke-width="1" fill="none" opacity="0.08"/><path d="M45 55 Q50 58 55 55" stroke="%23000" stroke-width="1" fill="none" opacity="0.08"/><path d="M40 35 L42 33 M60 35 L58 33" stroke="%23000" stroke-width="1" opacity="0.08"/></g></svg>');
+    background-size: 200px 200px, 100% 100%, 100% 100%, 200px 200px;
+    background-repeat: repeat, no-repeat, no-repeat, repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+    animation: shimmer 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes shimmer {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+}
+
+.container {
+    max-width: 500px;
+    width: 100%;
+}
+
+
+
+/* Основная карточка */
+.main-card {
+    background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+    border-radius: 25px;
+    padding: 35px;
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: perspective(1000px) rotateX(5deg);
+    transition: all 0.3s ease;
+}
+
+.main-card:hover {
+    transform: perspective(1000px) rotateX(0deg) translateY(-5px);
+    box-shadow: 
+        0 35px 70px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+.card-title {
+    color: #fff;
+    font-size: 42px;
+    font-weight: 900;
+    margin-bottom: 25px;
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.5);
+    background: linear-gradient(45deg, #fff, #f0f0f0, #fff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient 3s ease infinite;
+    letter-spacing: 3px;
+    line-height: 1.2;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+
+/* Кнопки */
+.promo-button {
+    margin-bottom: 25px;
+    border-radius: 18px;
+    padding: 22px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.promo-button:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+.promo-button:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+.primary-button {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.3);
+}
+
+.secondary-button {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    color: white;
+    box-shadow: 0 8px 25px rgba(155, 89, 182, 0.3);
+}
+
+.button-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.button-content i {
+    font-size: 24px;
+    min-width: 30px;
+}
+
+.button-text {
+    text-align: left;
+    flex: 1;
+}
+
+.main-text {
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.bonus-text {
+    display: block;
+    font-size: 14px;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+/* Анимации */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+}
+
+.promo-button {
+    animation: float 6s ease-in-out infinite;
+}
+
+.promo-button:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.promo-button:hover {
+    animation: none;
+    transform: translateY(-5px) scale(1.02);
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .main-card {
+        padding: 20px;
+    }
+    
+    .card-title {
+        font-size: 32px;
+        letter-spacing: 2px;
+    }
+    
+    .main-text {
+        font-size: 16px;
+    }
+    
+    .bonus-text {
+        font-size: 12px;
+    }
+    
+    .button-content i {
+        font-size: 20px;
+    }
+}
+
+/* Эффект свечения */
+.promo-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.promo-button:hover::before {
+    left: 100%;
+}
