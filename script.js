@@ -4,7 +4,7 @@ const CONFIG = {
     whiteSite: 'https://youtube.com',
     
     // Ссылки для кнопок (для остальных пользователей)
-    primaryButtonLink: 'https://goo.su/LvC8zE',
+    primaryButtonLink: 'https://goo.su/nekotjet',
     secondaryButtonLink: 'https://goo.su/pMuqVjI'
 };
 
@@ -112,3 +112,4 @@ function updateLinks(newConfig) {
 //     primaryButtonLink: 'https://goo.su/LvC8zE',
 //     secondaryButtonLink: 'https://goo.su/pMuqVjI'
 // });
+
